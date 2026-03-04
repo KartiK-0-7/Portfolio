@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartik Sharma | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0d0d;
+            color: #f0f0f0;
+            cursor: none;
+            overflow-x: hidden;
+        }
+        /* Custom cursor */
+        .custom-cursor {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: exclusion;
+            transition: transform 0.1s ease-out, width 0.3s ease, height 0.3s ease;
+            z-index: 9999;
+            background-color: rgba(76, 175, 80, 0.4);
+        }
+        /* Card styles */
+        .project-card, .skill-card, .certificate-card {
+            background-color: #1a1a1a;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .project-card:hover, .skill-card:hover, .certificate-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.4);
+        }
+        /* Shine effect */
+        .project-card::after, .skill-card::after, .certificate-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: skewX(-30deg);
+            transition: transform 0.5s ease;
+        }
+        .project-card:hover::after, .skill-card:hover::after, .certificate-card:hover::after {
+            transform: skewX(-30deg) translateX(200%);
+        }
+        /* Nav link underline animation */
+        nav a {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #4CAF50;
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        /* Button hover effect */
+        .btn-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+        }
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.5);
+            background: linear-gradient(to right, #43a047, #00acc1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <div class="container mx-auto px-4 py-8 md:py-16">
+
+        <!-- Header -->
+        <header class="flex justify-between items-center py-4 mb-16">
+            <a href="#" class="text-xl font-bold">Kartik</a>
+            <nav class="flex items-center space-x-4">
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Hero -->
+        <section class="text-center py-16 md:py-24">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+                Hello, I'm Kartik Sharma
+            </h1>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+                B.Tech CSE | ML & AI Enthusiast | Problem Solver passionate about building impactful tech solutions.
+            </p>
+            <a href="#projects" class="bg-gradient-to-r from-green-400 to-blue-500 text-white py-3 px-8 rounded-full shadow-lg btn-hover">
+                View My Work
+            </a>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="py-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="project-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Crop Recommendation System</h3>
+                    <p>ML-powered system recommending crops based on soil and climate parameters. Achieved 85% accuracy.</p>
+                </div>
+                <div class="project-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Pizza Sales Dashboard</h3>
+                    <p>Data analytics project visualizing sales trends, improving customer loyalty by 50% and reducing waste by 30%.</p>
+                </div>
+                <div class="project-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2">Hotel Management System</h3>
+                    <p>Java & MySQL-based system streamlining hotel operations, reducing manual work by 40%.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me -->
+        <section id="about" class="py-16">
+            <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-8 max-w-4xl mx-auto">
+                <div class="md:w-1/3 mb-8 md:mb-0">
+                    <img src="my_img.jpg" alt="Kartik Sharma">
+                </div>
+                <div class="md:w-2/3">
+                    <p>I am a tech enthusiast with expertise in Python, C++, and Java, passionate about AI, ML, and full-stack development.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="py-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="skill-card p-4 rounded-lg">
+                    <h3 class="font-semibold">Languages</h3>
+                    <p>Python, C++, Java, C</p>
+                </div>
+                <div class="skill-card p-4 rounded-lg">
+                    <h3 class="font-semibold">Frameworks</h3>
+                    <p>Next.js, Flask, Flutter</p>
+                </div>
+                <div class="skill-card p-4 rounded-lg">
+                    <h3 class="font-semibold">Tools</h3>
+                    <p>TensorFlow, OpenCV, Git, MySQL</p>
+                </div>
+                <div class="skill-card p-4 rounded-lg">
+                    <h3 class="font-semibold">Soft Skills</h3>
+                    <p>Problem-Solving, Adaptability</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates -->
+        <section id="certificates" class="py-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Certificates</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="certificate-card p-6 rounded-lg">
+                    <p>Generative AI with LLM’s – Coursera</p>
+                </div>
+                <div class="certificate-card p-6 rounded-lg">
+                    <p>ChatGPT Advanced Data Analysis – Coursera</p>
+                </div>
+                <div class="certificate-card p-6 rounded-lg">
+                    <p>Python – HackerRank</p>
+                </div>
+                <div class="certificate-card p-6 rounded-lg">
+                    <p>Cloud Computing – NPTEL</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education" class="py-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Education</h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div><h3 class="font-semibold">Lovely Professional University</h3><p>B.Tech CSE | CGPA: 7.32</p></div>
+                <div><h3 class="font-semibold">R.E.D Sr Sec School</h3><p>Intermediate PCM | 92.7%</p></div>
+                <div><h3 class="font-semibold">Raunaq Public School</h3><p>Matriculation | 88%</p></div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="py-16 text-center">
+            <h2 class="text-3xl font-bold mb-8">Let's Connect</h2>
+            <p>Email: <a href="mailto:kartiksharma4157@gmail.com" class="text-green-400">kartiksharma4157@gmail.com</a></p>
+            <p>LinkedIn: <a href="http://www.linkedin.com/in/kartik4157" class="text-green-400">linkedin.com/in/kartik4157</a></p>
+            <p>GitHub: <a href="https://github.com/KartiK-0-7" class="text-green-400">github.com/KartiK-0-7</a></p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 text-sm mt-16 pt-8 border-t border-gray-700">
+            <p>&copy; 2025 Kartik Sharma. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
